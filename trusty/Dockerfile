@@ -68,6 +68,8 @@ RUN \
         perl \
         unzip \
         zlib1g-dev \
+    && cd /root/requirements/ngx_http_substitutions_filter_module \
+    && ls \
     && cd /tmp \
     && curl -fSL https://www.openssl.org/source/openssl-${RESTY_OPENSSL_VERSION}.tar.gz -o openssl-${RESTY_OPENSSL_VERSION}.tar.gz \
     && tar xzf openssl-${RESTY_OPENSSL_VERSION}.tar.gz \
