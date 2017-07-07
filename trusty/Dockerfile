@@ -52,6 +52,9 @@ ARG _RESTY_CONFIG_DEPS="--with-openssl=/tmp/openssl-${RESTY_OPENSSL_VERSION} --w
 # 3) Build OpenResty
 # 4) Cleanup
 
+ADD ./root/requirements/ngx_http_substitutions_filter_module/ngx_http_substitutions_filter_module.c /root/requirements/ngx_http_substitutions_filter_module/
+ADD ./root/requirements/ngx_http_substitutions_filter_module/config /root/requirements/ngx_http_substitutions_filter_module/
+
 RUN \
     DEBIAN_FRONTEND=noninteractive apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
