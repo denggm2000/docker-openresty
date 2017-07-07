@@ -52,9 +52,6 @@ ARG _RESTY_CONFIG_DEPS="--with-openssl=/tmp/openssl-${RESTY_OPENSSL_VERSION} --w
 # 3) Build OpenResty
 # 4) Cleanup
 
-ADD ./root/requirements/ngx_http_substitutions_filter_module/ngx_http_substitutions_filter_module.c /root/requirements/ngx_http_substitutions_filter_module/
-ADD ./root/requirements/ngx_http_substitutions_filter_module/config /root/requirements/ngx_http_substitutions_filter_module/
-
 RUN \
     DEBIAN_FRONTEND=noninteractive apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
@@ -72,10 +69,9 @@ RUN \
         perl \
         unzip \
         zlib1g-dev \
-    && cd /root/requirements/ngx_http_substitutions_filter_module
-    && git clone git://github.com/yaoweibin/ngx_http_substitutions_filter_module.git
-    && find / -name ngx_http_substitutions_filter_module.c \
-    && pwd \
+    && mkdir /root/requirements \
+    && cd /root/requirements \
+    && git clone git://github.com/yaoweibin/ngx_http_substitutions_filter_module.git \
     && cd /tmp \
     && curl -fSL https://www.openssl.org/source/openssl-${RESTY_OPENSSL_VERSION}.tar.gz -o openssl-${RESTY_OPENSSL_VERSION}.tar.gz \
     && tar xzf openssl-${RESTY_OPENSSL_VERSION}.tar.gz \
