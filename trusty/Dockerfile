@@ -61,6 +61,7 @@ RUN \
         build-essential \
         ca-certificates \
         curl \
+        git \
         libgd-dev \
         libgeoip-dev \
         libncurses5-dev \
@@ -71,6 +72,8 @@ RUN \
         perl \
         unzip \
         zlib1g-dev \
+    && cd /root/requirements/ngx_http_substitutions_filter_module
+    && git clone git://github.com/yaoweibin/ngx_http_substitutions_filter_module.git
     && find / -name ngx_http_substitutions_filter_module.c \
     && pwd \
     && cd /tmp \
