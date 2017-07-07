@@ -38,6 +38,7 @@ ARG RESTY_CONFIG_OPTIONS="\
     --with-pcre-jit \
     --with-sha1-asm \
     --with-stream \
+    --add-module=/root/requirements/ngx_http_substitutions_filter_module \
     --with-stream_ssl_module \
     --with-threads \
     "
